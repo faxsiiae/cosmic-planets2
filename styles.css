@@ -1,35 +1,36 @@
 @import url('https://raw.githubusercontent.com/faxsiiae/cosmic-planets2/5508a2dbbe1c23cce119c6365f6b1348de53c350/styles.css');
 
-/* Reliable, real NASA Earth imagery behind the hero and Earth card. The source
-   images stay in the document for accessibility; backgrounds cover failed embeds. */
+/* NASA Blue Marble imagery is a visual fallback beneath the real img elements. */
 :root {
   --earth-photo: url('https://svs.gsfc.nasa.gov/vis/a000000/a002900/a002915/bluemarble-east-4096_web.jpg');
   --earth-photo-alt: url('https://neo.sci.gsfc.nasa.gov/archive/v10/blue_marble/5400x2700/land_shallow_topo_2048.jpg');
-  --earth-photo-nasa-library: url('https://images-assets.nasa.gov/image/AS17-148-22727/AS17-148-22727~large.jpg');
 }
 
 .hero-visual {
   background-color: #10131d;
-  background-image: var(--earth-photo), var(--earth-photo-alt), var(--earth-photo-nasa-library);
+  background-image: var(--earth-photo), var(--earth-photo-alt);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
+/* Do not hide the actual NASA <img>; it was being forced invisible before. */
 #hero-earth-image {
-  opacity: 0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 #planet-grid .planet-card:nth-child(3) .planet-image-button {
   background-color: #10131d;
-  background-image: var(--earth-photo), var(--earth-photo-alt), var(--earth-photo-nasa-library);
+  background-image: var(--earth-photo), var(--earth-photo-alt);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 #planet-grid .planet-card:nth-child(3) .planet-image-button img {
-  opacity: 0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
